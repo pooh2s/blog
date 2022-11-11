@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "./App.css";
+import { Layout } from "antd";
 
 function App() {
   const [time, setTime] = useState(new Date());
@@ -14,7 +16,7 @@ function App() {
   }, [timer]);
 
   return (
-    <>
+    <Layout className="layout">
       <h3>현재 시간 : {time.toLocaleTimeString()}</h3>
       <h3>현재 시간 : {time.toString()}</h3>
       <Router>
@@ -39,7 +41,7 @@ function App() {
           <Route path="/" element={<HOME />} />
         </Routes>
       </Router>
-    </>
+    </Layout>
   );
 }
 
