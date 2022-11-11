@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import { Layout, Menu } from "antd";
-import { Content } from "antd/lib/layout/layout";
 
 const { Header } = Layout;
 function App() {
@@ -27,31 +26,29 @@ function App() {
             theme="dark"
             mode="horizontal"
             defaultSelectedKeys={["1"]}
-            items={[
-              {
-                key: 1,
-                label: <Link to="/"> HOME</Link>,
-              },
-              {
-                key: 2,
-                label: <Link to="/resume"> 이력서</Link>,
-              },
-              {
-                key: 3,
-                label: <Link to="/portfolio"> 포트폴리오</Link>,
-              },
-            ]}
+            items={[]}
           />
+          <nav>
+            <ul>
+              <li>
+                <Link to="/"> HOME</Link>
+              </li>
+              <li>
+                <Link to="/resume"> 이력서</Link>
+              </li>
+              <li>
+                <Link to="/portfolio"> 포트폴리오</Link>
+              </li>
+            </ul>
+          </nav>
         </Header>
-        <Content style={{ padding: "100px 50px" }}>
-          <Routes>
-            <Route path="/portfolio" element={<Portfolio />} />
+        <Routes>
+          <Route path="/portfolio" element={<Portfolio />} />
 
-            <Route path="/resume" element={<Resume />} />
+          <Route path="/resume" element={<Resume />} />
 
-            <Route path="/" element={<HOME />} />
-          </Routes>
-        </Content>
+          <Route path="/" element={<HOME />} />
+        </Routes>
       </Router>
     </Layout>
   );

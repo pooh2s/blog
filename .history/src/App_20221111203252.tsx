@@ -43,7 +43,7 @@ function App() {
             ]}
           />
         </Header>
-        <Content style={{ padding: "100px 50px" }}>
+        <Content style={{ padding: "0 50px" }}>
           <Routes>
             <Route path="/portfolio" element={<Portfolio />} />
 
