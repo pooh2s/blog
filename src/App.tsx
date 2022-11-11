@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const fun1 = (a: number): number => {
   return 1;
-}
+};
 
 function fun2(a: number): number {
   return 2;
 }
 
-const funX = fun1
+const funX = fun1;
 const a = () => {
-  return funX(2)
-}
+  return funX(2);
+};
 
 function App() {
   const [time, setTime] = useState(new Date());
-  const timer = setInterval( () => {
+  const timer = setInterval(() => {
     setTime(new Date());
   }, 1000);
 
@@ -23,7 +23,6 @@ function App() {
     return () => {
       clearInterval(timer);
     };
-    
   }, [timer]);
 
   let isEven = true;
@@ -33,16 +32,14 @@ function App() {
     isEven = false;
   }
 
-
   return (
     <div>
       <h3>현재 시간 : {time.toLocaleTimeString()}</h3>
       <h3>현재 시간 : {time.toString()}</h3>
       <h3>지금 시간은 홀일까요 짝일까요? : {isEven ? "짝이네" : "홀이네"}</h3>
-      
-      
+
       <h1>자기소개</h1>
-      <h3>이름 : 이승후</h3>
+      <h3>이름 : 이승후(27)</h3>
       <h3>학력</h3>
       <>
         <li>우신고등학교</li>
