@@ -18,28 +18,26 @@ function App() {
       <h3>현재 시간 : {time.toLocaleTimeString()}</h3>
       <h3>현재 시간 : {time.toString()}</h3>
       <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/"> HOME</Link>
-              </li>
-              <li>
-                <Link to="/resume"> 이력서</Link>
-              </li>
-              <li>
-                <Link to="/portfolio"> 포트폴리오</Link>
-              </li>
-            </ul>
-          </nav>
-          <Routes>
-            <Route path="/portfolio" element={<Portfolio />} />
+        <nav>
+          <ul>
+            <li>
+              <Link to="/"> HOME</Link>
+            </li>
+            <li>
+              <Link to="/resume"> 이력서</Link>
+            </li>
+            <li>
+              <Link to="/portfolio"> 포트폴리오</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/portfolio" element={<Portfolio />} />
 
-            <Route path="/resume" element={<Resume />} />
+          <Route path="/resume" element={<Resume />} />
 
-            <Route path="/" element={<HOME />} />
-          </Routes>
-        </div>
+          <Route path="/" element={<HOME />} />
+        </Routes>
       </Router>
     </>
   );
