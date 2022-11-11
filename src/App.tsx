@@ -33,21 +33,21 @@ function App() {
             </ul>
           </nav>
           <Routes>
-            <Route path="/portfolio">
-              <Portfolio />
-            </Route>
-            <Route path="/resume">
-              <Resume />
-            </Route>
-            <Route path="/">
-              <HOME />
-            </Route>
+            <Route path="/portfolio" element={<Portfolio />} />
+
+            <Route path="/resume" element={<Resume />} />
+
+            <Route path="/" element={<HOME />} />
           </Routes>
         </div>
       </Router>
     </>
   );
 }
+
+const HOME = () => {
+  return <>홈페이지</>;
+};
 
 const Resume = () => {
   return (
@@ -70,10 +70,6 @@ const Resume = () => {
 };
 
 const Portfolio = () => {
-  return <></>;
-};
-
-const HOME = () => {
   return <></>;
 };
 
