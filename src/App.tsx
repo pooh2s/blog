@@ -23,6 +23,7 @@ function App() {
     return () => {
       clearInterval(timer);
     };
+    
   }, [timer]);
 
   let isEven = true;
