@@ -24,7 +24,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://pooh2s.github.io/blog",
   "eslintConfig": {
     "extends": [
       "react-app",
