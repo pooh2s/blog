@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import { Layout, Menu } from "antd";
-import { Content } from "antd/lib/layout/layout";
+import { Content, Footer } from "antd/lib/layout/layout";
 
 const { Header } = Layout;
 function App() {
@@ -43,7 +43,8 @@ function App() {
             ]}
           />
         </Header>
-        <Content style={{ padding: "100px 50px" }}>
+        <Content style={{ padding: "0 51px", height: 300 }}>
+        <div className="site-layout-content" style={{}}>
           <Routes>
             <Route path="/portfolio" element={<Portfolio />} />
 
@@ -51,14 +52,16 @@ function App() {
 
             <Route path="/" element={<HOME />} />
           </Routes>
+          </div>
         </Content>
       </Router>
+      <Footer>Ant Design</Footer>
     </Layout>
   );
 }
 
 const HOME = () => {
-  return <>홈페이지</>;
+  return <div style={{background: "#fff", height: 200, padding: 24, marginTop: 60, marginBottom: 60, border: 5,}}>홈페이지</div>;
 };
 
 const Resume = () => {
