@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
-import { Button, Layout, Menu } from "antd";
+import { Avatar, Button, Layout, List, Menu } from "antd";
 import { Content, Footer } from "antd/lib/layout/layout";
 import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+import { Guestbook } from "./guestbook";
 
 const { Header } = Layout;
 
@@ -67,17 +68,24 @@ function App() {
                 key: 3,
                 label: <Link to="/portfolio"> 포트폴리오</Link>,
               },
+              {
+                key: 4,
+                label: <Link to="/guestbook"> 방명록</Link>,
+              },
             ]}
           />
         </Header>
         <Content style={{ padding: "0 51px", height: 300 }}>
         <div className="site-layout-content" style={{}}>
           <Routes>
+            <Route path="/guestbook" element={<Guestbook />} />
+
             <Route path="/portfolio" element={<Portfolio />} />
 
             <Route path="/resume" element={<Resume />} />
 
             <Route path="/" element={<HOME />} />
+            
           </Routes>
           </div>
         </Content>
@@ -114,5 +122,7 @@ const Resume = () => {
 const Portfolio = () => {
   return <></>;
 };
+
+
 
 export default App;
