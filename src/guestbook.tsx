@@ -17,7 +17,14 @@ export const Guestbook = () => {
   const [data, setData] = useState<GuestbookItem[]>([]);
 
   const fetchGuestbookItems = async () => {
-    const {data} = await axios.get('https://backend-arf0.onrender.com');
+    const {data} = await axios.get('https://backend-arf0.onrender.com');  // render내 서버로 돌리기 때문에 백엔드 index.tsx코드에서 외부 링크 받은걸 내부 링크로 바꿔야함
+    /*user: 'blog_3zqc_user',
+    host: 'dpg-cdrl7ida49909bkeko1g-a.oregon-postgres.render.com',
+    database: 'blog_3zqc',
+    password: 'tA8LfWPgDn8zAyNb4WF0X6SndEw9mS8K',
+    port: 5432,
+    ssl: true*/
+
 //    const {data} = await axios.get('http://localhost:3001/guestbook/items');
     //console.log("results", results);
     const results = data;
