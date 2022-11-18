@@ -18,6 +18,7 @@ export const Guestbook = () => {
 
   const fetchGuestbookItems = async () => {
     const {data} = await axios.get('https://backend-arf0.onrender.com');
+//    const {data} = await axios.get('http://localhost:3001/guestbook/items');
     //console.log("results", results);
     const results = data;
     const items: GuestbookItem[] = [];

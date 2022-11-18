@@ -5,7 +5,7 @@ import { Avatar, Button, Layout, List, Menu } from "antd";
 import { Content, Footer } from "antd/lib/layout/layout";
 import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
-import { Guestbook } from "./guestbook";
+import Guestbook from "./guestbook";
 
 const { Header } = Layout;
 
