@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Avatar, Button, List } from "antd";
+import axios from "axios";
+import result from "antd/lib/result";
 
 type GuestbookItem = {
   key: number;
@@ -8,30 +10,46 @@ type GuestbookItem = {
   username: string;
 };
 
-const sample: GuestbookItem[] = [
-  {
-    key: 1,
-    title: "안녕하세요",
-    content: "첫번째 글",
-    username: "이승후",
-  },
-  {
-    key: 2,
-    title: "잘가세요",
-    content: "두번째 글",
-    username: "승후",
-  },
-];
+
 
 export const Guestbook = () => {
   const [loading, setLoading] = useState<boolean>(false);
+  const [data, setData] = useState<GuestbookItem[]>([]);
+
+  const fetchGuestbookItems = async () => {
+    const {data} = await axios.get('https://backend-arf0.onrender.com');
+    //console.log("results", results);
+    const results = data;
+    const items: GuestbookItem[] = [];
+    for(let i=0; i< results.length; i++){
+        items.push({
+            key: results[i].id,
+            title: results[i].title,
+            content: results[i].content,
+            username: results[i].name,
+        })
+    }
+
+    /*results.forEach((result : any) => {
+        return {
+            key: result.id,
+            title: result.title,
+            content: result.content,
+            username: result.name,
+        };
+
+    });*/
+
+    setData(items);
+  };
+
   return (
     <>
       {" "}
       <List
         loading={loading}
         itemLayout="horizontal"
-        dataSource={sample}
+        dataSource={data}
         renderItem={(item) => (
           <List.Item style={{ background: "#fff" }}>
             <List.Item.Meta
@@ -58,9 +76,10 @@ export const Guestbook = () => {
         )}
       />
       <Button
-        onClick={() => {
+        onClick={async () => {
           setLoading(true);
           //TODO: 이따가 하자
+          await fetchGuestbookItems();
           setLoading(false);
         }}
       >
